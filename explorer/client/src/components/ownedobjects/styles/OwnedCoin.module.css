@@ -22,7 +22,7 @@
 }
 
 .summary {
-    @apply grid py-[10px] cursor-pointer break-words;
+    @apply grid py-[8px] cursor-pointer break-words;
 
     grid-template-columns: 5% 30% 30% 30% 5%;
 }
@@ -36,16 +36,12 @@
     @apply text-sui-grey-80;
 }
 
-.openedgroup .summary div {
-    @apply pb-[12px];
-}
-
 .closedgroup {
     @apply text-sui-grey-90 hover:bg-[#6fbcf014];
 }
 
 .openbody {
-    @apply max-h-[200px] overflow-auto;
+    @apply max-h-[200px] overflow-auto bg-sui-grey-40;
 }
 
 .objectid,
