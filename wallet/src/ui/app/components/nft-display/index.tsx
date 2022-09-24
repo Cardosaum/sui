@@ -5,7 +5,7 @@ import cl from 'classnames';
 import ExplorerLink from '_components/explorer-link';
 import { ExplorerLinkType } from '_components/explorer-link/ExplorerLinkType';
 import Icon, { SuiIcons } from '_components/icon';
-import { useNFTBasicData } from '_hooks';
+import { useMiddleEllipsis, useNFTBasicData } from '_hooks';
 
 import type { SuiObject as SuiObjectType } from '@mysten/sui.js';
 
@@ -30,10 +30,17 @@ function NFTDisplayCard({
         useNFTBasicData(nftobj);
 
     const name = nftFields?.name || nftFields?.metadata?.fields?.name;
+    const objIDShort = useMiddleEllipsis(nftObjectID);
+    const nftType = useMiddleEllipsis(
+        ('type' in nftobj.data && nftobj.data.type) || null,
+        20,
+        3
+    );
+    const displayTitle = name || objIDShort;
 
     const wideviewSection = (
         <div className={st.nftfields}>
-            <div className={st.nftName}>{name}</div>
+            <div className={st.nftName}>{displayTitle}</div>
             <div className={st.nftType}>
                 {fileExtentionType?.name} {fileExtentionType.type}
             </div>
@@ -54,20 +61,28 @@ function NFTDisplayCard({
                     </ExplorerLink>
                 </div>
             ) : null}
-            {showlabel && name ? (
-                <div className={st.nftfields}>{name}</div>
+            {showlabel && displayTitle ? (
+                <div className={st.nftfields}>{displayTitle}</div>
             ) : null}
         </>
     );
 
     return (
-        <div className={cl(st.nftimage, wideview && st.wideview, st[size])}>
-            {filePath && (
+        <div
+            className={cl(st.nftimage, wideview && st.wideview, st[size])}
+            title={nftType}
+        >
+            {filePath ? (
                 <img
                     className={cl(st.img)}
                     src={filePath}
                     alt={fileExtentionType?.name || 'NFT'}
                 />
+            ) : (
+                <div className={st.noMedia}>
+                    <Icon className={st.noMediaIcon} icon="slash-circle" />
+                    <span>No media</span>
+                </div>
             )}
             {wideview ? wideviewSection : defaultSection}
         </div>
