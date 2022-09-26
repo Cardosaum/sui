@@ -3,6 +3,10 @@
     @apply truncate min-w-0;
 }
 
+.oneline a {
+    @apply font-mono;
+}
+
 .cointype {
     @apply pr-[15px];
 }
