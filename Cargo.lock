@@ -9744,7 +9744,6 @@ dependencies = [
  "autocfg",
  "axum",
  "axum-core",
- "axum-macros",
  "backoff",
  "backtrace",
  "base16ct",
