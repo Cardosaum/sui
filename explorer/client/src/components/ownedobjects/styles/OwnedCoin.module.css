@@ -62,7 +62,7 @@
 }
 
 .value {
-    @apply w-[50vw] text-sui-grey-80;
+    @apply max-w-[50vw] text-sui-grey-80;
 }
 
 .closedgroup .summary:hover {
