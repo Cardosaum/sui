@@ -45,30 +45,24 @@
 }
 
 .openbody {
-    @apply max-h-[210px] overflow-auto bg-sui-grey-40;
+    @apply max-h-[210px] overflow-auto bg-sui-grey-40 flex flex-col items-start gap-[12px]
+    p-[10px] pl-[15px];
 }
 
-.objectid,
-.balance {
-    @apply text-sui-grey-80 grid break-words;
-
-    grid-template-columns: 5% 30% 60% 5%;
+.singlecoin {
+    @apply flex flex-col items-start p-0 gap-[6px];
 }
 
-.objectid {
-    @apply pb-[10px] pt-0;
+.openrow {
+    @apply flex flex-row items-center p-0;
 }
 
-.objectid:first-child {
-    @apply pt-[10px];
+.label {
+    @apply w-[80px] text-sui-grey-80 text-[13px] leading-[100%];
 }
 
-.balance {
-    @apply pb-[16px];
-}
-
-.balance :nth-child(3) {
-    @apply text-sui-grey-85;
+.value {
+    @apply w-[50vw] text-sui-grey-80;
 }
 
 .closedgroup .summary:hover {
