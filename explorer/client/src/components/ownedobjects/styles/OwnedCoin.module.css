@@ -41,7 +41,7 @@
 }
 
 .openbody {
-    @apply max-h-[200px] overflow-auto bg-sui-grey-40;
+    @apply max-h-[210px] overflow-auto bg-sui-grey-40;
 }
 
 .objectid,
@@ -53,6 +53,10 @@
 
 .objectid {
     @apply pb-[10px] pt-0;
+}
+
+.objectid:first-child {
+    @apply pt-[10px];
 }
 
 .balance {
